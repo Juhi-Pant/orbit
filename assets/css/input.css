@@ -1,0 +1,19 @@
+.bg-signup {
+    min-height: calc(100vh - 160px);
+    margin-top: 50px;
+}
+.bg-signup input.w-full,
+.bg-signup select,
+.form input.w-full,
+.form select,
+.form textarea {
+    width: 100%;
+    border: 1px solid #ddd;
+    height: 40px;
+    border-radius: 8px;
+    padding: 8px 20px;
+}
+
+.bg-signup input[type="checkbox"] {
+    margin-right: 5px;
+}

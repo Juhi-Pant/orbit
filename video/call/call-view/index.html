@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Basic Metadata -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Welcome to Orbit Video Learn - Your platform for AI-powered education">
+  <meta name="robots" content="index, follow">
+  <meta name="keywords" content="AI, education, video learn">
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "EducationEvent",
+    "name": "Orbit Video Learn",
+    "description": "Your platform for AI-powered education"
+  }
+  </script>
+
+  <!-- Open Graph & Twitter Cards -->
+  <meta property="og:title" content="Orbit | Video Learn">
+  <meta property="og:description" content="Your platform for AI-powered education">
+  <meta property="og:image" content="path/to/image.jpg">
+
+  <!-- AWS SDK & WebSocket (if needed) -->
+  <script async src="path/to/aws-sdk.js"></script>
+  <script async>
+      var socket = new WebSocket("ws://your-websocket-endpoint");
+  </script>
+
+  <!-- OpenAI API Configuration from MainRefHead -->
+  <script src="/JUHI[1]/JUHI/assets/js/openai-api.js"></script>
+  
+  <!-- CSS and Other Asset Files -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="/JUHI[1]/JUHI/assets/css/css/common/all.min.css" rel="stylesheet">
+  <link href="/JUHI[1]/JUHI/assets/css/brands.min.css" rel="stylesheet">
+  <link href="/JUHI[1]/JUHI/assets/css/regular.min.css" rel="stylesheet">
+  <link href="/JUHI[1]/JUHI/assets/css/solid.min.css" rel="stylesheet">
+  <link href="/JUHI[1]/JUHI/assets/css/css/lib/slick-theme.css" rel="stylesheet">
+  <link href="/JUHI[1]/JUHI/assets/css/css/lib/slick.css" rel="stylesheet">
+  <link href="/JUHI[1]/JUHI/assets/css/css/components/style.css" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="path/to/favicon.png">
+
+  <!-- JavaScript for Chat Functionality -->
+  <script>
+    async function getChatResponse(userInput) {
+      const url = "https://your-flask-app.com/get-chat-response"; // Replace with your Flask endpoint URL
+
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ prompt: userInput })
+      });
+
+      const data = await response.json();
+      const chatResponse = data.generatedText;
+
+      // Use chatResponse in your chat interface
+      console.log(chatResponse);
+    }
+  </script>
+  
+  <!-- Title -->
+  <title>Orbit | Video Learn </title>
+</head>
+
+<header>
+  <nav class="container  w-full bg-white border-b border-gray-500 fixed top-0 z-10">
+    <div class="mx-auto px-2 sm:px-6 lg:px-8">
+      <div class="relative flex h-16 items-center justify-between">
+        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <button type="button" class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+
+                <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" strokewidth="1.5" stroke="currentColor" aria-hidden="true">
+                    <path strokelinecap="round" strokelinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+                </svg>
+
+                <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" strokewidth="1.5" stroke="currentColor" aria-hidden="true">
+                    <path strokelinecap="round" strokelinejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="flex ">
+            <div class="flex flex-shrink-0 items-center">
+                <a href="../home/index.html"><img class="block h-8 w-auto " src="/JUHI[1]/JUHI/assets/images/logos/logo-orbit1.svg" alt=" Your Company"></a>
+            </div>
+
+        </div>
+
+        <div class="search relative">
+          <svg
+            stroke="currentColor"
+            fill="currentColor"
+            stroke-width="0"
+            viewBox="0 0 512 512"
+            class="absolute left-2 top-2.5 text-gray-400"
+            height=".9em"
+            width=".9em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
+            ></path>
+          </svg>
+          <input
+            type="text"
+            placeholder="Search Orbit, or ask on chat."
+            class="outline-0 pl-8 pr-16 py-2 rounded-full"
+          />
+          <svg
+            class="absolute right-5 top-2.5 text-gray-400"
+            xmlns="http://www.w3.org/2000/svg"
+            height=".9em"
+            viewBox="0 0 384 512"
+            fill="currentColor"
+          >
+            <path
+              d="M192 0C139 0 96 43 96 96V256c0 53 43 96 96 96s96-43 96-96V96c0-53-43-96-96-96zM64 216c0-13.3-10.7-24-24-24s-24 10.7-24 24v40c0 89.1 66.2 162.7 152 174.4V464H120c-13.3 0-24 10.7-24 24s10.7 24 24 24h72 72c13.3 0 24-10.7 24-24s-10.7-24-24-24H216V430.4c85.8-11.7 152-85.3 152-174.4V216c0-13.3-10.7-24-24-24s-24 10.7-24 24v40c0 70.7-57.3 128-128 128s-128-57.3-128-128V216z"
+            />
+          </svg>
+        </div>
+        <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 nav-index ">
+           
+
+          <div class="relative" data-te-dropdown-ref>
+            <a class="flex flex-wrap items-center whitespace-nowrap transition duration-150 ease-in-out motion-reduce:transition-none "
+              href="#" id="dropdownMenuButton2" role="button" data-te-dropdown-toggle-ref aria-expanded="false">
+              <img src="https://www.ihna.edu.au/blog/wp-content/uploads/2022/10/user-dummy.png" class="rounded-full w-10 h-10" alt=""
+                loading="lazy" />
+              <div class='ml-3 text-xs'>
+                User Name<br />
+                <span class='block text-blue-500'>View Profile</span>
+              </div>
+            </a>
+            <ul
+              class="absolute left-auto right-0 z-[1000] float-left m-0 mt-1 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+              aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
+              <li>
+                <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+                  href="#" data-te-dropdown-item-ref>Action</a>
+              </li>
+              <li>
+                <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+                  href="#" data-te-dropdown-item-ref>Another action</a>
+              </li>
+              <li>
+                <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+                  href="#" data-te-dropdown-item-ref>Something else here</a>
+              </li>
+            </ul>
+          </div>
+          
+        </div>
+    </div>
+      <div class="sm:hidden" id="mobile-menu">
+        <div class="space-y-1 px-2 pt-2 pb-3">
+
+          <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
+            aria-current="page">Dashboard</a>
+
+          <a href="#"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Team</a>
+
+          <a href="#"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
+
+          <a href="#"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Calendar</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+  <div class="dashBord_right resize-right fixedtop-spacing">
+    <div class="content">
+      <div class="page-inner">
+        <div class="page-category">
+            
+         
+          <div class="row flex">
+              <div class="col-12 justify-content-center videoarea  video_area border-r border-gray-300 relative">
+              <div class="flex justify-between gap-2">
+                <h3 class="flex items-center mb-2"><a href="/src/pages/home/index.html" class="inline-block py-2 px-3 border mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512" fill="#333"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
+                  </a><b>CONNECT Video: </b> User </h3>
+                   <button class="flex px-4 py-2 gap-2 items-center border border-gray-400 rounded-md">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <mask id="mask0_3808_12237" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                    <rect width="24" height="24" fill="#D9D9D9"/>
+                    </mask>
+                    <g mask="url(#mask0_3808_12237)">
+                    <path d="M4 4L6 8H9L7 4H9L11 8H14L12 4H14L16 8H19L17 4H20C20.55 4 21.0208 4.19583 21.4125 4.5875C21.8042 4.97917 22 5.45 22 6V18C22 18.55 21.8042 19.0208 21.4125 19.4125C21.0208 19.8042 20.55 20 20 20H4C3.45 20 2.97917 19.8042 2.5875 19.4125C2.19583 19.0208 2 18.55 2 18V6C2 5.45 2.19583 4.97917 2.5875 4.5875C2.97917 4.19583 3.45 4 4 4ZM4 10V18H20V10H4Z" fill="#1C1B1F"/>
+                    </g>
+                    </svg>
+                    View</button>
+                    
+                  </div>
+                  <script>var uname = 'John Doe'</script>
+                  <h3 id="peerid"></h3>
+                  <div class="slider-video">
+                    <div class="slide">
+               <div class="connect-video ongoing-connect">
+                <img class="w-32 h-32 rounded-full mb-2" src="/JUHI[1]/JUHI/assets/images/users/userorbit.svg" alt="Jese Leos">
+                <p class="text-lg font-semibold">HOST</p>
+                <p class="mt-1 text-sm">User’s camera is currently turned off.</p>
+           
+                </div>
+                </div>
+                <div class="slide">
+               <div class="connect-video ongoing-connect">
+                <img class="w-32 h-32 rounded-full mb-2" src="/JUHI[1]/JUHI/assets/images/users/userorbit.svg" alt="Jese Leos">
+                <p class="text-lg font-semibold">HOST</p>
+                <p class="mt-1 text-sm">User’s camera is currently turned off.</p>
+           
+                </div>
+                </div>
+                <div class="slide">
+               <div class="connect-video ongoing-connect">
+                <img class="w-32 h-32 rounded-full mb-2" src="/JUHI[1]/JUHI/assets/images/users/userorbit.svg" alt="Jese Leos">
+                <p class="text-lg font-semibold">HOST</p>
+                <p class="mt-1 text-sm">User’s camera is currently turned off.</p>
+           
+                </div>
+                </div>
+                </div>
+            
+                <div class="videoon">
+                  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" class=" stroke-blue" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z">
+                    </path>
+                </svg>
+                  Turn on your camera so that other participants can view you.
+                  </div>   
+                  
+                  <div class=" hidden video_onarea">
+                    <div class="live-person rounded-md overflow-hidden">
+                                <img class="inline-block object-cover " src="/JUHI[1]/JUHI/assets/images/courses/video-img.png" alt="Orbit user">
+                                    <p class="bg-indigo-500 text-white text-center text-md ">You</p>
+                                </div></div>
+           
+            </div>
+          
+            <div class="col-3 notearea hidden">
+                <div class="notesbg">
+                    <div class="flex justify-between px-2 pb-2 items-center">
+                    <h4>My Desk</h4>
+                    <div class="flex items-center">
+                    <svg  class="iconexpand expandnotepad" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <mask id="mask0_3069_11765" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="8" y="8" width="16" height="16">
+                        <rect x="8" y="8" width="16" height="16" fill="#D9D9D9"/>
+                        </mask>
+                        <g mask="url(#mask0_3069_11765)">
+                        <path d="M16.6672 16.0005C16.4783 16.0005 16.32 15.9366 16.1922 15.8089C16.0644 15.6811 16.0005 15.5227 16.0005 15.3339V11.3339C16.0005 11.145 16.0644 10.9866 16.1922 10.8589C16.32 10.7311 16.4783 10.6672 16.6672 10.6672C16.8561 10.6672 17.0144 10.7311 17.1422 10.8589C17.27 10.9866 17.3339 11.145 17.3339 11.3339V13.7339L21.2672 9.80052C21.3894 9.6783 21.545 9.61719 21.7339 9.61719C21.9227 9.61719 22.0783 9.6783 22.2005 9.80052C22.3227 9.92274 22.3839 10.0783 22.3839 10.2672C22.3839 10.4561 22.3227 10.6116 22.2005 10.7339L18.2672 14.6672H20.6672C20.8561 14.6672 21.0144 14.7311 21.1422 14.8589C21.27 14.9866 21.3339 15.145 21.3339 15.3339C21.3339 15.5227 21.27 15.6811 21.1422 15.8089C21.0144 15.9366 20.8561 16.0005 20.6672 16.0005H16.6672ZM9.80052 22.2005C9.6783 22.0783 9.61719 21.9227 9.61719 21.7339C9.61719 21.545 9.6783 21.3894 9.80052 21.2672L13.7339 17.3339H11.3339C11.145 17.3339 10.9866 17.27 10.8589 17.1422C10.7311 17.0144 10.6672 16.8561 10.6672 16.6672C10.6672 16.4783 10.7311 16.32 10.8589 16.1922C10.9866 16.0644 11.145 16.0005 11.3339 16.0005H15.3339C15.5227 16.0005 15.6811 16.0644 15.8089 16.1922C15.9366 16.32 16.0005 16.4783 16.0005 16.6672V20.6672C16.0005 20.8561 15.9366 21.0144 15.8089 21.1422C15.6811 21.27 15.5227 21.3339 15.3339 21.3339C15.145 21.3339 14.9866 21.27 14.8589 21.1422C14.7311 21.0144 14.6672 20.8561 14.6672 20.6672V18.2672L10.7339 22.2005C10.6116 22.3227 10.4561 22.3839 10.2672 22.3839C10.0783 22.3839 9.92274 22.3227 9.80052 22.2005Z" fill="#1C1B1F"/>
+                        </g>
+                        <rect x="0.5" y="0.5" width="31" height="31" rx="7.5" stroke="#D7D7DC"/>
+                        </svg>
+                        <span class="edit_icondot"></span>
+                        </div>
+                </div>
+                <div class="flex gap-2 justify-between border-t theme-color py-3 ">
+                  <div class="flex-1 flex">
+                    <span class="p-1 flex text-sm"><img src="/JUHI[1]/JUHI/assets/images/icons/Notes.svg" class="h-5 mr-1"> Notes</span>
+                    </div>
+                    <div class="flex-1 flex justify-end gap-2">
+                  <a href=""  class="active  border-blue-500 border p-1"><img src="/JUHI[1]/JUHI/assets/images/icons/chatgpt.svg" class="h-5"></a>
+                  <a href="" class="border-gray-500 border p-1"><img src="/JUHI[1]/JUHI/assets/images/icons/Notion.svg" class="h-5"></a>
+                
+                  <a href="" class="border-gray-500 border p-1"><img src="/JUHI[1]/JUHI/assets/images/icons/word.svg" class="h-5"></a>
+                </div>
+                  </div>
+              <textarea class="form-control mt-0 note-control note_control border-0 textnote" id="textnote" placeholder="Notes"></textarea>
+              <div class="flex justify-end mt-3 gap-4">
+                <button class="btn-notenave px-6 py-2 rounded-md" onclick="saveFile()">SAVE</button>
+                <button class="btn-notecance px-6 py-2 rounded-md  "
+                  onclick="document.getElementById('textnote').value = ''">CANCEL</button>
+              </div>
+              </div>
+            </div>
+            
+            <div class="col-3 justify-content-center chatarea hidden video-streams">
+              <div class="dashboard-chat">
+           
+
+            <div class='flex-1 basis-1/4 relative border border-gray-300 fullchat'>
+                <div class="chat-img">
+                    <div class="sliderrecommendeds">
+                        <div class="slide">
+                         <img src="/JUHI[1]/JUHI/assets/images/advertisment/ScoreCard.png" class="w-full" alt="">
+                      </div> 
+                      <div class="slide">
+                         <img src="/JUHI[1]/JUHI/assets/images/advertisment/Bing.png" class="w-full" alt="">
+                      </div> 
+                      <div class="slide">
+                         <img src="/JUHI[1]/JUHI/assets/images/advertisment/ChatGPT.png" class="w-full" alt="">
+                      </div> 
+                      <div class="slide">
+                         <img src="/JUHI[1]/JUHI/assets/images/advertisment/PhilzCoffee.png" class="w-full" alt="">
+                      </div> 
+                      <div class="slide">
+                         <img src="/JUHI[1]/JUHI/assets/images/advertisment/Tesla.png" class="w-full" alt="">
+                      </div> 
+                    </div>
+                </div>
+                <div class="flex justify-between px-2 pr-0 py-4 items-center bg-white">
+                    <h4>My Orbit</h4>
+                    <div class="flex items-center">
+                    <svg  class="iconexpand chatexpand" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <mask id="mask0_3069_11765" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="8" y="8" width="16" height="16">
+                        <rect x="8" y="8" width="16" height="16" fill="#D9D9D9"/>
+                        </mask>
+                        <g mask="url(#mask0_3069_11765)">
+                        <path d="M16.6672 16.0005C16.4783 16.0005 16.32 15.9366 16.1922 15.8089C16.0644 15.6811 16.0005 15.5227 16.0005 15.3339V11.3339C16.0005 11.145 16.0644 10.9866 16.1922 10.8589C16.32 10.7311 16.4783 10.6672 16.6672 10.6672C16.8561 10.6672 17.0144 10.7311 17.1422 10.8589C17.27 10.9866 17.3339 11.145 17.3339 11.3339V13.7339L21.2672 9.80052C21.3894 9.6783 21.545 9.61719 21.7339 9.61719C21.9227 9.61719 22.0783 9.6783 22.2005 9.80052C22.3227 9.92274 22.3839 10.0783 22.3839 10.2672C22.3839 10.4561 22.3227 10.6116 22.2005 10.7339L18.2672 14.6672H20.6672C20.8561 14.6672 21.0144 14.7311 21.1422 14.8589C21.27 14.9866 21.3339 15.145 21.3339 15.3339C21.3339 15.5227 21.27 15.6811 21.1422 15.8089C21.0144 15.9366 20.8561 16.0005 20.6672 16.0005H16.6672ZM9.80052 22.2005C9.6783 22.0783 9.61719 21.9227 9.61719 21.7339C9.61719 21.545 9.6783 21.3894 9.80052 21.2672L13.7339 17.3339H11.3339C11.145 17.3339 10.9866 17.27 10.8589 17.1422C10.7311 17.0144 10.6672 16.8561 10.6672 16.6672C10.6672 16.4783 10.7311 16.32 10.8589 16.1922C10.9866 16.0644 11.145 16.0005 11.3339 16.0005H15.3339C15.5227 16.0005 15.6811 16.0644 15.8089 16.1922C15.9366 16.32 16.0005 16.4783 16.0005 16.6672V20.6672C16.0005 20.8561 15.9366 21.0144 15.8089 21.1422C15.6811 21.27 15.5227 21.3339 15.3339 21.3339C15.145 21.3339 14.9866 21.27 14.8589 21.1422C14.7311 21.0144 14.6672 20.8561 14.6672 20.6672V18.2672L10.7339 22.2005C10.6116 22.3227 10.4561 22.3839 10.2672 22.3839C10.0783 22.3839 9.92274 22.3227 9.80052 22.2005Z" fill="#1C1B1F"/>
+                        </g>
+                        <rect x="0.5" y="0.5" width="31" height="31" rx="7.5" stroke="#D7D7DC"/>
+                        </svg>
+                        <svg class=" ml-3 mt-3" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <mask id="mask0_2700_4304" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32">
+                            <rect width="32" height="32" fill="#D9D9D9"></rect>
+                            </mask>
+                            <g mask="url(#mask0_2700_4304)">
+                            <path d="M7.99996 13.3327C7.63329 13.3327 7.3194 13.2021 7.05829 12.941C6.79718 12.6799 6.66663 12.366 6.66663 11.9993C6.66663 11.6327 6.79718 11.3188 7.05829 11.0577C7.3194 10.7966 7.63329 10.666 7.99996 10.666C8.36663 10.666 8.68052 10.7966 8.94163 11.0577C9.20274 11.3188 9.33329 11.6327 9.33329 11.9993C9.33329 12.366 9.20274 12.6799 8.94163 12.941C8.68052 13.2021 8.36663 13.3327 7.99996 13.3327ZM7.99996 9.33268C7.63329 9.33268 7.3194 9.20213 7.05829 8.94102C6.79718 8.6799 6.66663 8.36602 6.66663 7.99935C6.66663 7.63268 6.79718 7.31879 7.05829 7.05768C7.3194 6.79657 7.63329 6.66602 7.99996 6.66602C8.36663 6.66602 8.68052 6.79657 8.94163 7.05768C9.20274 7.31879 9.33329 7.63268 9.33329 7.99935C9.33329 8.36602 9.20274 8.6799 8.94163 8.94102C8.68052 9.20213 8.36663 9.33268 7.99996 9.33268ZM7.99996 5.33268C7.63329 5.33268 7.3194 5.20213 7.05829 4.94102C6.79718 4.6799 6.66663 4.36602 6.66663 3.99935C6.66663 3.63268 6.79718 3.31879 7.05829 3.05768C7.3194 2.79657 7.63329 2.66602 7.99996 2.66602C8.36663 2.66602 8.68052 2.79657 8.94163 3.05768C9.20274 3.31879 9.33329 3.63268 9.33329 3.99935C9.33329 4.36602 9.20274 4.6799 8.94163 4.94102C8.68052 5.20213 8.36663 5.33268 7.99996 5.33268Z" fill="#1C1B1F"></path>
+                            </g>
+                            </svg>
+                        </div>
+                </div>
+                <!--<div class="flex my-4 justify-between px-4 ">
+                    <a href="#" class=" inline-block relative w-10">
+                        // <img class="w-10 h-10 rounded-full" src="https://www.ihna.edu.au/blog/wp-content/uploads/2022/10/user-dummy.png" alt="Jese Leos">
+                    </a>
+                    <div class="ml-1 bg-indigo-700	p-4 text-white rounded-lg w-4/5">
+                        // <p>Hello, Can you help me out? I am   </p>
+                    </div>
+                </div>
+                <div class="flex my-4 justify-between px-4">
+
+                    <div class="mr-1 bg-indigo-100	p-4  rounded-lg w-4/5">
+                        // <p>Hello, Can you help me out? </p>
+                    </div>
+                    <a href="#" class="px-4 block relative w-18">
+                        // <img class="w-10 h-10 rounded-full" src="https://www.ihna.edu.au/blog/wp-content/uploads/2022/10/user-dummy.png" alt="Jese Leos">
+                    </a>
+                </div>-->
+
+                <form class="absolute bottom-0 left-0 w-full bg-white">
+            <label for="chat" class="sr-only">Your message</label>
+            <div
+              class="flex items-center px-3 py-2 rounded-lg bg-gray-200 "
+            >
+              <textarea
+                id="chat"
+                rows="1"
+                class="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg  outline-0 border-0"
+                placeholder="Type Message..."
+              ></textarea>
+              <button
+                type="submit"
+                class="inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer hover:bg-blue-100 dark:text-blue-500 dark:hover:bg-gray-600"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="w-6 h-6 rotate-90"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"
+                  ></path>
+                </svg>
+                <span class="sr-only">Text message</span>
+              </button>
+            </div>
+          </form>
+
+
+            </div>
+        </div>
+            </div>
+         
+            </div>
+            
+          
+          </div>
+          
+          
+        
+        </div>
+      </div>
+    
+            <div class="nav-right">
+               <ul>
+               <li class="nav-rightHome "><svg width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.98815 21.3334V21.3459H3.00065H7.00065H7.01315V21.3334V13.3459H14.9882V21.3334V21.3459H15.0007H19.0007H19.0132V21.3334V9.33342H19.0215L19.0082 9.32341L11.0082 3.32341L11.0007 3.31779L10.9932 3.32341L2.99315 9.32341L2.98815 9.31675V9.33342V21.3334ZM1.40804 7.21016L1.40815 7.21008L9.408 1.21019C9.40803 1.21017 9.40805 1.21016 9.40808 1.21014C9.65154 1.03308 9.90594 0.900385 10.1713 0.81194C10.4366 0.723488 10.7131 0.679248 11.0007 0.679248C11.2882 0.679248 11.5647 0.723488 11.83 0.81194C12.0954 0.900385 12.3498 1.03308 12.5932 1.21014C12.5933 1.21016 12.5933 1.21017 12.5933 1.21019L20.5932 7.21008L20.5933 7.21016C20.925 7.45341 21.1848 7.76296 21.3728 8.139C21.5608 8.51505 21.6548 8.91313 21.6548 9.33342V21.3334C21.6548 22.0634 21.395 22.688 20.8751 23.2079C20.3552 23.7278 19.7306 23.9876 19.0007 23.9876H12.3465V16.0001V15.9876H12.334H9.66732H9.65482V16.0001V23.9876H3.00065C2.27066 23.9876 1.64605 23.7278 1.12616 23.2079C0.60626 22.688 0.346484 22.0634 0.346484 21.3334V9.33342C0.346484 8.91313 0.440477 8.51505 0.628498 8.139C0.816519 7.76296 1.07635 7.45341 1.40804 7.21016Z" fill="#" stroke="#" stroke-width="0.025"/>
+</svg>
+</li>
+               <li class="nav-rightdashboard "><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_2731_3617" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32">
+<rect x="0.5" y="0.5" width="31" height="31" fill="#" stroke="#"/>
+</mask>
+<g mask="url(#mask0_2731_3617)">
+<path d="M8.00065 26.6541C7.27066 26.6541 6.64605 26.3943 6.12616 25.8744C5.60626 25.3545 5.34648 24.7299 5.34648 23.9999C5.34648 23.2699 5.60626 22.6453 6.12616 22.1254C6.64605 21.6055 7.27066 21.3458 8.00065 21.3458C8.73064 21.3458 9.35525 21.6055 9.87515 22.1254C10.395 22.6453 10.6548 23.2699 10.6548 23.9999C10.6548 24.7299 10.395 25.3545 9.87515 25.8744C9.35525 26.3943 8.73064 26.6541 8.00065 26.6541ZM16.0007 26.6541C15.2707 26.6541 14.6461 26.3943 14.1262 25.8744C13.6063 25.3545 13.3465 24.7299 13.3465 23.9999C13.3465 23.2699 13.6063 22.6453 14.1262 22.1254C14.6461 21.6055 15.2707 21.3458 16.0007 21.3458C16.7306 21.3458 17.3552 21.6055 17.8751 22.1254C18.395 22.6453 18.6548 23.2699 18.6548 23.9999C18.6548 24.7299 18.395 25.3545 17.8751 25.8744C17.3552 26.3943 16.7306 26.6541 16.0007 26.6541ZM24.0007 26.6541C23.2707 26.6541 22.6461 26.3943 22.1262 25.8744C21.6063 25.3545 21.3465 24.7299 21.3465 23.9999C21.3465 23.2699 21.6063 22.6453 22.1262 22.1254C22.6461 21.6055 23.2707 21.3458 24.0007 21.3458C24.7306 21.3458 25.3552 21.6055 25.8751 22.1254C26.395 22.6453 26.6548 23.2699 26.6548 23.9999C26.6548 24.7299 26.395 25.3545 25.8751 25.8744C25.3552 26.3943 24.7306 26.6541 24.0007 26.6541ZM8.00065 18.6541C7.27066 18.6541 6.64605 18.3943 6.12616 17.8744C5.60626 17.3545 5.34648 16.7299 5.34648 15.9999C5.34648 15.2699 5.60626 14.6453 6.12616 14.1254C6.64605 13.6055 7.27066 13.3458 8.00065 13.3458C8.73064 13.3458 9.35525 13.6055 9.87515 14.1254C10.395 14.6453 10.6548 15.2699 10.6548 15.9999C10.6548 16.7299 10.395 17.3545 9.87515 17.8744C9.35525 18.3943 8.73064 18.6541 8.00065 18.6541ZM16.0007 18.6541C15.2707 18.6541 14.6461 18.3943 14.1262 17.8744C13.6063 17.3545 13.3465 16.7299 13.3465 15.9999C13.3465 15.2699 13.6063 14.6453 14.1262 14.1254C14.6461 13.6055 15.2707 13.3458 16.0007 13.3458C16.7306 13.3458 17.3552 13.6055 17.8751 14.1254C18.395 14.6453 18.6548 15.2699 18.6548 15.9999C18.6548 16.7299 18.395 17.3545 17.8751 17.8744C17.3552 18.3943 16.7306 18.6541 16.0007 18.6541ZM24.0007 18.6541C23.2707 18.6541 22.6461 18.3943 22.1262 17.8744C21.6063 17.3545 21.3465 16.7299 21.3465 15.9999C21.3465 15.2699 21.6063 14.6453 22.1262 14.1254C22.6461 13.6055 23.2707 13.3458 24.0007 13.3458C24.7306 13.3458 25.3552 13.6055 25.8751 14.1254C26.395 14.6453 26.6548 15.2699 26.6548 15.9999C26.6548 16.7299 26.395 17.3545 25.8751 17.8744C25.3552 18.3943 24.7306 18.6541 24.0007 18.6541ZM8.00065 10.6541C7.27066 10.6541 6.64605 10.3943 6.12616 9.87441C5.60626 9.35452 5.34648 8.72991 5.34648 7.99992C5.34648 7.26993 5.60626 6.64532 6.12616 6.12542C6.64605 5.60553 7.27066 5.34575 8.00065 5.34575C8.73064 5.34575 9.35525 5.60553 9.87515 6.12542C10.395 6.64532 10.6548 7.26993 10.6548 7.99992C10.6548 8.72991 10.395 9.35452 9.87515 9.87441C9.35525 10.3943 8.73064 10.6541 8.00065 10.6541ZM16.0007 10.6541C15.2707 10.6541 14.6461 10.3943 14.1262 9.87441C13.6063 9.35452 13.3465 8.72991 13.3465 7.99992C13.3465 7.26993 13.6063 6.64532 14.1262 6.12542C14.6461 5.60553 15.2707 5.34575 16.0007 5.34575C16.7306 5.34575 17.3552 5.60553 17.8751 6.12542C18.395 6.64532 18.6548 7.26993 18.6548 7.99992C18.6548 8.72991 18.395 9.35452 17.8751 9.87441C17.3552 10.3943 16.7306 10.6541 16.0007 10.6541ZM24.0007 10.6541C23.2707 10.6541 22.6461 10.3943 22.1262 9.87441C21.6063 9.35452 21.3465 8.72991 21.3465 7.99992C21.3465 7.26993 21.6063 6.64532 22.1262 6.12542C22.6461 5.60553 23.2707 5.34575 24.0007 5.34575C24.7306 5.34575 25.3552 5.60553 25.8751 6.12542C26.395 6.64532 26.6548 7.26993 26.6548 7.99992C26.6548 8.72991 26.395 9.35452 25.8751 9.87441C25.3552 10.3943 24.7306 10.6541 24.0007 10.6541Z" fill="#" stroke="#" stroke-width="0.025"/>
+</g>
+</svg>
+</li>
+<li  class="nav-rightchat "><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_2731_3620" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32">
+<rect x="0.5" y="0.5" width="31" height="31" fill="#" stroke="#"/>
+</mask>
+<g mask="url(#mask0_2731_3620)">
+<path d="M2.67852 29.3032V5.33341C2.67852 4.60342 2.93829 3.97882 3.45819 3.45892C3.97808 2.93902 4.60269 2.67925 5.33268 2.67925H26.666C27.396 2.67925 28.0206 2.93902 28.5405 3.45892C29.0604 3.97882 29.3202 4.60342 29.3202 5.33341V21.3334C29.3202 22.0634 29.0604 22.688 28.5405 23.2079C28.0206 23.7278 27.396 23.9876 26.666 23.9876H7.99935V23.9824L7.99051 23.9912L2.67852 29.3032ZM5.32018 22.9001V22.9303L5.34152 22.9089L6.90453 21.3459H26.666H26.6785V21.3334V5.33341V5.32091H26.666H5.33268H5.32018V5.33341V22.9001ZM18.6535 16.0126V18.6542H8.01185V16.0126H18.6535ZM23.9868 14.6542H8.01185V12.0126H23.9868V14.6542ZM23.9868 10.6542H8.01185V8.01258H23.9868V10.6542Z" fill="#" stroke="#" stroke-width="0.025"/>
+</g>
+</svg></li>
+           
+
+               </ul>
+            </div>
+  
+  </div>
+  <div class="fixed bottom-0 left-0 z-50 w-full h-16 bg-gray-900 b">
+        <div class="flex justify-center items-center h-16">
+            <button type="button" class="inline-flex flex-col items-center justify-center px-8 group text-white">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                    stroke-linejoin="round" class=" stroke-white" height="1em" width="1em"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+            </button>
+            <button type="button" class="inline-flex flex-col items-center justify-center px-8 group text-white">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                    stroke-linejoin="round" class=" stroke-white" height="1em" width="1em"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+            </button>
+            <button type="button" class="inline-flex flex-col items-center justify-center px-8 group text-white">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16"
+                    class=" stroke-white" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z">
+                    </path>
+                </svg>
+            </button>
+            
+            <button type="button" class="inline-flex flex-col items-center justify-center px-8 group text-white">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" class=" fill-white"
+                    height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M13 8c0 .564-.094 1.107-.266 1.613l-.814-.814A4.02 4.02 0 0 0 12 8V7a.5.5 0 0 1 1 0v1zm-5 4c.818 0 1.578-.245 2.212-.667l.718.719a4.973 4.973 0 0 1-2.43.923V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 1 0v1a4 4 0 0 0 4 4zm3-9v4.879l-1-1V3a2 2 0 0 0-3.997-.118l-.845-.845A3.001 3.001 0 0 1 11 3z">
+                    </path>
+                    <path
+                        d="m9.486 10.607-.748-.748A2 2 0 0 1 6 8v-.878l-1-1V8a3 3 0 0 0 4.486 2.607zm-7.84-9.253 12 12 .708-.708-12-12-.708.708z">
+                    </path>
+                </svg>
+            </button>
+            <button type="button" class="inline-flex flex-col items-center justify-center px-8 group text-white">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                    stroke-linejoin="round" class=" stroke-white" height="1em" width="1em"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path
+                        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                    </path>
+                </svg>
+            </button>
+            <button type="button" class="inline-flex flex-col items-center justify-center px-8 group text-white">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" class=" fill-white"
+                    height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M5.5 0a.5.5 0 0 1 .5.5v4A1.5 1.5 0 0 1 4.5 6h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5zm5 0a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 10 4.5v-4a.5.5 0 0 1 .5-.5zM0 10.5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 6 11.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zm10 1a1.5 1.5 0 0 1 1.5-1.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4z">
+                    </path>
+                </svg>
+            </button>
+
+            <a type="button" href="/src/pages/home/index.html"
+                class="inline-flex flex-col items-center justify-center text-xs px-6 group text-white bg-red-600 py-2 rounded-md text-md ml-40 absolute right-16">
+                Leave
+            </a>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/JUHI[1]/JUHI/assets/js/jquery.js"></script>
+  <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <script src="/JUHI[1]/JUHI/assets/js/slick.min.js"></script>
+    <script src="/JUHI[1]/JUHI/assets/js/aos.js"></script>
+  <script src="/JUHI[1]/JUHI/assets/js/main.js"></script>
+  <script>
+    
+const videoarea = document.querySelector(".videoarea");
+const notearea = document.querySelector(".notearea");
+const chatarea = document.querySelector(".chatarea");
+const choicevideos = document.querySelector(".choicevideos");
+const rightHome = document.querySelector(".nav-rightHome	");
+const rightdashboard = document.querySelector(".nav-rightdashboard");
+const rightchat = document.querySelector(".nav-rightchat");
+const righthistory = document.querySelector(".nav-righthistory");
+const rightdes = document.querySelector(".nav-rightdes");
+const notepadin = document.querySelector(".expandnotepad");
+const chatin = document.querySelector(".chatexpand");
+const ongoingconnect = document.querySelector(".ongoing-connect");
+
+chatin.addEventListener("click", () => {
+    chatarea.classList.add("hidden");
+    videoarea.classList.add("col-9");
+videoarea.classList.remove("col-6");
+rightchat.classList.remove("active");
+if(notearea.classList.contains('hidden')){
+    videoarea.classList.add("col-12");
+    videoarea.classList.remove("col-9");
+}
+});
+
+
+notepadin.addEventListener("click", () => {
+    if(chatarea.classList.contains('hidden')){
+    videoarea.classList.add("col-12");
+    videoarea.classList.remove("col-9");
+}
+
+  rightdashboard.classList.remove("active");
+    notearea.classList.add("hidden");
+    videoarea.classList.add("col-9");
+    videoarea.classList.remove("col-6");
+
+});
+
+rightchat.addEventListener("click", () => {
+    if(videoarea.classList.contains('col-9')){
+    videoarea.classList.remove("col-9");
+    videoarea.classList.add("col-6");
+   
+}
+else if(videoarea.classList.contains('col-12')){
+    videoarea.classList.remove("col-12");
+    videoarea.classList.add("col-9");
+   
+}
+rightchat.classList.add("active");
+  rightdashboard.classList.remove("active");
+  chatarea.classList.remove("hidden");
+
+
+
+});   
+
+  
+  
+rightHome.addEventListener("click", () => {
+    rightHome.classList.add("active");
+  rightdashboard.classList.remove("active");
+  videoarea.classList.add("col-9");
+  videoarea.classList.remove("col-6");
+  notearea.classList.add("hidden");
+  chatarea.classList.remove("col-6");
+
+if(videoarea.classList.contains('col-12')){
+    videoarea.classList.add("col-6");
+    videoarea.classList.remove("col-12");
+    notearea.classList.remove("hidden");
+chatarea.classList.remove("hidden");
+}
+
+});
+
+rightdashboard.addEventListener("click", () => {
+rightdashboard.classList.add("active");
+videoarea.classList.remove("col-12");
+videoarea.classList.add("col-6");
+notearea.classList.remove("hidden");
+chatarea.classList.remove("hidden");
+choicevideos.classList.add("hidden");
+chatarea.classList.remove("col-6");
+
+});
+    </script>
+</body>
+
+</html>
